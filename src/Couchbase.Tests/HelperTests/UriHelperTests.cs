@@ -13,7 +13,7 @@ namespace Couchbase.Tests.HelperTests
 		[Test]
 		public void When_Combining_Paths_With_Root_Uri_With_Trailing_Slash_No_Double_Slashes_Exist()
 		{
-			var rootUri = new Uri("http://localhost:8091/pools/");
+			var rootUri = new Uri("http://10.0.0.79:8091/pools/");
 			var combined = UriHelper.Combine(rootUri, "default");
 			Assert.That(combined.AbsolutePath, Is.Not.StringContaining("//"));
 		}
@@ -21,39 +21,39 @@ namespace Couchbase.Tests.HelperTests
 		[Test]
 		public void When_Combining_Multiple_Paths_With_Leading_Slash_No_Double_Slashes_Exist()
 		{
-			var rootUri = new Uri("http://localhost:8091/pools/");
+			var rootUri = new Uri("http://10.0.0.79:8091/pools/");
 			var combined = UriHelper.Combine(rootUri, "/default", "/buckets");
 			Assert.That(combined.AbsolutePath, Is.Not.StringContaining("//"));
-			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://localhost:8091/pools/default/buckets"));
+			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://10.0.0.79:8091/pools/default/buckets"));
 		}
 
 		[Test]
 		public void When_Combining_Multiple_Paths_With_Trailing_Slash_No_Double_Slashes_Exist()
 		{
-			var rootUri = new Uri("http://localhost:8091/pools/");
+			var rootUri = new Uri("http://10.0.0.79:8091/pools/");
 			var combined = UriHelper.Combine(rootUri, "default", "buckets/");
 			Assert.That(combined.AbsolutePath, Is.Not.StringContaining("//"));
-			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://localhost:8091/pools/default/buckets"));
+			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://10.0.0.79:8091/pools/default/buckets"));
 
 		}
 
 		[Test]
 		public void When_Combining_Multiple_Paths_With_Trailing_And_Leading_Slash_No_Double_Slashes_Exist()
 		{
-			var rootUri = new Uri("http://localhost:8091/pools/");
+			var rootUri = new Uri("http://10.0.0.79:8091/pools/");
 			var combined = UriHelper.Combine(rootUri, "/default/", "/buckets/");
 			Assert.That(combined.AbsolutePath, Is.Not.StringContaining("//"));
-			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://localhost:8091/pools/default/buckets"));
+			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://10.0.0.79:8091/pools/default/buckets"));
 
 		}
 
 		[Test]
 		public void When_Combining_Multiple_Paths_With_Mixed_Trailing_And_Leading_Slash_No_Double_Slashes_Exist()
 		{
-			var rootUri = new Uri("http://localhost:8091/pools/");
+			var rootUri = new Uri("http://10.0.0.79:8091/pools/");
 			var combined = UriHelper.Combine(rootUri, "/default", "buckets/", "other");
 			Assert.That(combined.AbsolutePath, Is.Not.StringContaining("//"));
-			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://localhost:8091/pools/default/buckets/other"));
+			Assert.That(combined.AbsoluteUri, Is.StringMatching("http://10.0.0.79:8091/pools/default/buckets/other"));
 
 		}
 	}

@@ -25,7 +25,7 @@ namespace Couchbase.Tests
 		protected Tuple<CouchbaseClient, CouchbaseClientConfiguration> GetClientWithConfig(INameTransformer nameTransformer = null)
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools/default"));
+			config.Urls.Add(new Uri("http://10.0.0.79:8091/pools/default"));
 			config.Bucket = "default";
 			config.DesignDocumentNameTransformer = nameTransformer ?? new DevelopmentModeNameTransformer();
 			config.HttpClientFactory = new MockHttpClientFactory();

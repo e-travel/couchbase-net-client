@@ -33,7 +33,7 @@ namespace Couchbase.Tests
 		private CouchbaseClient getClient(string username, string password)
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools"));
+			config.Urls.Add(new Uri("http://10.0.0.79:8091/pools"));
 			config.Bucket = username;
 			config.BucketPassword = password;
 			config.DesignDocumentNameTransformer = new DevelopmentModeNameTransformer();

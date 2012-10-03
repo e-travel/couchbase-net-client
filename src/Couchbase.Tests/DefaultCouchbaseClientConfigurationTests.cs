@@ -20,7 +20,7 @@ namespace Couchbase.Tests
 		public void When_Using_Code_Config_And_Http_Client_Factory_Is_Not_Set_Hammock_Factory_Is_Default()
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools"));
+			config.Urls.Add(new Uri("http://10.0.0.79:8091/pools"));
 			Assert.That(config.HttpClientFactory, Is.InstanceOf<HammockHttpClientFactory>());
 
 			//HammockHttpClient is an internal class to the Couchbase assembly,
@@ -65,7 +65,7 @@ namespace Couchbase.Tests
 		public void When_Using_Code_Config_And_Http_Client_Factory_Is_Not_Set_Operations_Succeed()
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools"));
+			config.Urls.Add(new Uri("http://10.0.0.79:8091/pools"));
 			Assert.That(config.HttpClientFactory, Is.InstanceOf<HammockHttpClientFactory>());
 
 			Assert.That(config, Is.Not.Null, "min-config section missing from app.config");
@@ -89,7 +89,7 @@ namespace Couchbase.Tests
 		public void When_Using_Code_Config_And_Design_Document_Name_Transformer_Is_Not_Set_Production_Mode_Is_Default()
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools"));
+			config.Urls.Add(new Uri("http://10.0.0.79:8091/pools"));
 			var client = new CouchbaseClient(config); //client sets up transformer
 
 			Assert.That(config.DesignDocumentNameTransformer, Is.InstanceOf<ProductionModeNameTransformer>());		}

@@ -62,7 +62,7 @@ namespace Couchbase.Tests
 		public void When_Flushing_Bucket_Data_Are_Removed()
 		{
 			var config = new CouchbaseClientConfiguration();
-			config.Urls.Add(new Uri("http://localhost:8091/pools/default"));
+			config.Urls.Add(new Uri("http://10.0.0.79:8091/pools/default"));
 			config.Bucket = "default";
 
 			var client = new CouchbaseClient(config);
